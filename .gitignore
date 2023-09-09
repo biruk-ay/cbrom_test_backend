@@ -1,0 +1,5 @@
+#virtual envitonment
+venv/
+#Compiled output
+src/__pycache__
+src/utils/__pycache__
