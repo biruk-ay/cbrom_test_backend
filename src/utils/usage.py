@@ -1,5 +1,5 @@
 import psutil
-
+from datetime import datetime
 
 class Usage:
     def __init__(self) -> None:
@@ -20,7 +20,8 @@ class Usage:
     def get_cpu(self):
         return psutil.cpu_count(logical=False)
     
-    #maybe add time
+    def get_time(self):
+        return datetime.now()
 
     
     def get_all_info(self):
@@ -28,17 +29,10 @@ class Usage:
                 self.get_net(),
                 self.get_disk(),
                 self.get_memory(),
-                self.get_cpu()]
+                self.get_cpu(),
+                self.get_time()]
     
 if __name__ == "__main__":
     a = Usage()
     for i in (a.get_all_info()):
         print(str(i) + "\n\n")
-
-
-# print(psutil.cpu_count(logical=False))
-# print(psutil.disk_usage('/').total)
-# print(psutil.net_io_counters().bytes_sent)
-# # version_info = psutil.version_info
-# for i, k in enumerate(psutil.version_info):
-#     print(i,k)
